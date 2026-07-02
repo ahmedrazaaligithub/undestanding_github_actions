@@ -34,3 +34,9 @@ jobs:
 
       - name: Build Project
         run: yarn build
+
+      - name: Upload Build Artificate
+        uses: actions/upload-artificate@v4
+        with:
+          name: frontend-build
+          path: dist
