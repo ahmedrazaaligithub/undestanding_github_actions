@@ -13,13 +13,22 @@ jobs:
   build:
     name: Build React Application
     runs-on: ubuntu-latest
+
     steps:
+    - name: Checkout Repository
     - uses: actions/checkout@v4
-    - name: Use Node.js
+
+    - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: 22
         cache: "yarn"
+    - name: Install Dependencies    
     - run: yarn install --frozen-lockfile # install dependencies
+
+    - name: Run Eslint
+    - run: yarn lint
+
+    - name: Build Project
     - run: yarn build
     # - run: npm test
