@@ -15,20 +15,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-    - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 22
-        cache: "yarn"
-    - name: Install Dependencies    
-    - run: yarn install --frozen-lockfile # install dependencies
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "yarn"
+      - name: Install Dependencies    
+        run: yarn install --frozen-lockfile # install dependencies
 
-    - name: Run Eslint
-    - run: yarn lint
+      - name: Run Eslint
+        run: yarn lint
 
-    - name: Build Project
-    - run: yarn build
-    # - run: npm test
+      - name: Build Project
+        run: yarn build
+    #   run: npm test
