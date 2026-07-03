@@ -40,3 +40,21 @@ jobs:
         with:
           name: frontend-build
           path: dist
+  
+  deploy-uat:
+    name: Deploy To UAT
+    need: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Artifact Build
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-build
+          path: deploy
+
+      - name: Verify Downloaded Files
+        run: ls -R deploy
+
+      - name: Simulate Deployment
+        run: echo "🚀 Application deployed to UAT successfully!"
