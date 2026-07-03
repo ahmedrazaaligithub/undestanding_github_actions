@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-    name: uat
+      name: uat
 
     steps:
       - name: Download Artifact Build
