@@ -1,4 +1,4 @@
-name:  React Vite CI
+name:  CI/CD Pipeline
 
 on:
   push:
@@ -45,6 +45,9 @@ jobs:
     name: Deploy To UAT
     needs: build
     runs-on: ubuntu-latest
+
+    environment:
+      name: uat
 
     steps:
       - name: Download Artifact Build
